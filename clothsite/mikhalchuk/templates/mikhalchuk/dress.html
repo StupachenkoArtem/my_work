@@ -1,0 +1,22 @@
+{% extends 'mikhalchuk/base.html' %}
+{% block mainphoto %}
+{% endblock mainphoto %}
+{% load static %}
+{% block content %}
+<div class="container"> <div class="row"> <div class="col-12"> <h1>{{ title }}</h1> </div> </div>
+    <div class="row">
+  {% for dress in dress %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card">
+        <img class="card-img-top" src="{{ dress.main_photo.url }}" alt="{{ dress.name }}">
+        <div class="card-body">
+          <h4 class="card-title">{{ dress.name }}</h4>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No Dress found.</p>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

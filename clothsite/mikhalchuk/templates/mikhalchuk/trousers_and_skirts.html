@@ -1,0 +1,22 @@
+{% extends 'mikhalchuk/base.html' %}
+{% block mainphoto %}
+{% endblock mainphoto %}
+{% load static %}
+{% block content %}
+<div class="container"> <div class="row"> <div class="col-12"> <h1>{{ title }}</h1> </div> </div>
+    <div class="row">
+  {% for trousers_and_skirts in trousers_and_skirts %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card">
+        <img class="card-img-top" src="{{ trousers_and_skirts.main_photo.url }}" alt="{{ trousers_and_skirts.name }}">
+        <div class="card-body">
+          <h4 class="card-title">{{ trousers_and_skirts.name }}</h4>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No TrousersAndSkirts found.</p>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

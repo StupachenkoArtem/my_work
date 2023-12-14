@@ -1,0 +1,18 @@
+{% extends 'mikhalchuk/base.html' %}
+{% block mainphoto %}
+{% endblock mainphoto %}
+{% block content %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<h1>{{title}}</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for f in form %}
+  <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}:</label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+  {% endfor %}
+  <button type="submit">Регистрация</button>
+</form>
+{% endblock %}

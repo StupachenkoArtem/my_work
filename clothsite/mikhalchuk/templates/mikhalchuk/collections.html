@@ -1,0 +1,36 @@
+{% extends 'mikhalchuk/base.html' %}
+{% block mainphoto %}
+{% endblock mainphoto %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for collection_data in collections_with_photos %}
+            {% with collection=collection_data.collection photos=collection_data.photos %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ collection.main_photo.url }}" alt="{{ collection.name }}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ collection.name }}</h4>
+                            <div class="collection-photos">
+                                {% for photo in photos %}
+                                    <img src="{{ photo.image.url }}" alt="">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endwith %}
+        {% empty %}
+            <p>No collections found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+

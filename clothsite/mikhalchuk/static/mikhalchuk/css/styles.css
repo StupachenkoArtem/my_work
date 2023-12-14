@@ -1,0 +1,225 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+.menu {
+  flex-grow: 4;
+  display: flex;
+  list-style-type: none;
+  font-family: "Century Gothic", sans-serif;
+  margin: auto;
+  padding-left: 0;
+  height: 50px; /* Устанавливаем высоту .menu равной 100% */
+}
+
+.menu li.left-item {
+  flex-grow: 0.3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu li.left-item1 {
+  flex-grow: 0.5;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.menu li.right-item {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+
+.menu li.centered-item {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Добавляем позиционирование */
+}
+
+.menu li.centered-item .centered-content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu li.centered-item .centered-content a {
+  display: block;
+  text-align: center;
+}
+
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  border: none; /* Убираем границу */
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: block;
+  font-weight: normal;
+  z-index: 1;
+}
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -9px; /* Расположение треугольника над .dropdown-content */
+  left: 50%; /* Расположение треугольника в центре */
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 10px 10px 10px; /* Треугольник смотрит вниз, поэтому верхний бордер - 0 */
+  border-color: transparent transparent #ddd transparent; /* Цвет треугольника */
+}
+
+/* Добавьте стили для выпадающего списка */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ddd;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  top: +26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Сделайте так, чтобы выпадающий список был виден при наведении на .dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Стили для элементов выпадающего списка */
+.dropdown-content a {
+  font-size: 15px;
+  color: black;
+  padding: 12px 16px;
+  display: block;
+
+}
+
+.company-logo {
+  width: 50px; /* Новая ширина */
+  height: auto;
+}
+.form-label {
+  font-weight: bold;
+}
+
+.form-error {
+  color: red;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.input, select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.label {
+  margin-top: 10px;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Styles for the card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.collection-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.collection-photos img {
+  max-width: 25%;
+  height: auto;
+  margin: 10px;
+}

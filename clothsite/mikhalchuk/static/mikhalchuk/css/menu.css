@@ -1,0 +1,29 @@
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.hover-text {
+    font-size: 40px;
+    cursor: pointer;
+    list-style-type: none;
+    margin: -10;
+    padding: 0;
+    display: flex;
+}

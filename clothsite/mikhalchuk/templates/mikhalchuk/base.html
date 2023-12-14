@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link href="{% static 'mikhalchuk/css/styles.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            {% block mainmenu %}
+                {% for m in menu %}
+                    {% if forloop.counter == 1 %}
+                        <li class="left-item">
+                            <b>
+                                <div class="dropdown">
+                                    <span class="hover-text" onclick="event.stopPropagation();">Галерея</span>
+                                    <div class="dropdown-content">
+                                        <a href="{% url 'new_collection' %}">новая коллекция</a>
+                                        <a href="{% url 'dress' %}">платья</a>
+                                        <a href="{% url 'jackets' %}">пиджаки</a>
+                                        <a href="{% url 'shirts_and_blouses' %}">рубашки и блузы</a>
+                                        <a href="{% url 'trousers_and_skirts' %}">брюки и юбки</a>
+                                    </div>
+                                </div>
+                            </b>
+                        </li>
+                    {% elif forloop.counter == 2 %}
+                        <li class="left-item1">
+                            <a href="{% url m.url_name %}">{{ m.title }}</a>
+                        </li>
+                    {% elif forloop.counter == 3 %}
+                        <li class="centered-item">
+                            <div class="centered-content">
+                            <a href="{% url 'home' %}" onclick="event.stopPropagation();">MIKHAL'</a>
+                            <a href="{% url 'home' %}" onclick="event.stopPropagation();">CHUK</a>
+                            </div>
+                        </li>
+                    {% elif forloop.counter == 4 %}
+                        <li class="right-item">
+                            <a href="{% url m.url_name %}" onclick="event.stopPropagation();">{{ m.title }}</a>
+                        </li>
+            {% if request.user.is_authenticated %}
+            <li class="last"> {{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+        {% else %}
+            <li class="last"><a href="{% url 'register' %}">Регистрация</a><a href="{% url 'login' %}">Войти</a></li>
+        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endblock mainmenu %}
+        </ul>
+    </nav>
+    {% block mainphoto %}
+    <nav>
+        <div style="text-align: center;">
+        <img src="{{ STATIC_URL }}media/photos/mainphoto4.JPG" style="width: 100%; height: 100%;">
+        </div>
+    </nav>
+    {% endblock mainphoto %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
